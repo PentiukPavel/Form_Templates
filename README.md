@@ -1,6 +1,6 @@
 # FastAPI_SQLAlchemy_template
 ## Описание
-......
+Web-приложение для определения заполненных форм
 
 ## Для разработчиков:
 ### Пример файла с переменными среды:
@@ -21,7 +21,7 @@ pre-commit run --all-files
 
 1. Клонировать проект
 ```bash
-git clone git@github.com:PentiukPavel/.....
+git clone git@github.com:PentiukPavel/Form_Templates.git
 ```
 
 2. Переименовать файл .env.example и изменить содержимое на актуальные данные.
@@ -51,11 +51,7 @@ pip install -r requirements_dev.txt
 ```bash
 cd src
 ```
-6. Выполнить миграции c помощью команды:
-```bash
-alembic upgrade head
-```
-7. Запустить проект:
+6. Запустить проект:
 ```bash
 uvicorn main:app --reload
 ```
@@ -67,11 +63,7 @@ uvicorn main:app --reload
     ```bash
     docker-compose up -d
     ```
-3. Выполнить миграции c помощью команды:
-    ```bash
-    docker-compose exec backend alembic upgrade head
-    ```
-4. Для остановки проекта в корневой папке выполнить команду:
+3. Для остановки проекта в корневой папке выполнить команду:
     ```bash
     docker-compose down -v
     ```
@@ -82,8 +74,4 @@ uvicorn main:app --reload
 
 ## Стек
 ### FastAPI
-### pytest
-### SQLAlchemy
-### PosrgreSQL
-### Redis
-### Nginx
+### TinyDb
