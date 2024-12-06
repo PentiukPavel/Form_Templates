@@ -11,5 +11,4 @@ app.middleware("http")(LoggingMiddleware())
 
 @app.get("/")
 def hello():
-    raise KeyError("!!!!!!!!!")
     return {"Hello": "World"}
