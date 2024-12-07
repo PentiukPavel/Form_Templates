@@ -1,7 +1,7 @@
 import re
 
 from core.database import db
-from validation.templates import FIELD_TEMPLATES, FieldTypes
+from services.templates import FIELD_TEMPLATES, FieldTypes
 
 
 def define_type_of_value(value: str) -> str:
@@ -10,10 +10,10 @@ def define_type_of_value(value: str) -> str:
     :param value: значение
     """
 
-    for temp in list(sorted(FIELD_TEMPLATES.keys())):
-        for i in FIELD_TEMPLATES[temp]:
+    for template in list(sorted(FIELD_TEMPLATES.keys())):
+        for i in FIELD_TEMPLATES[template]:
             if re.match(i, value):
-                return temp
+                return template
     return FieldTypes.TEXT.value
 
 
@@ -39,14 +39,14 @@ def find_form(form: dict) -> dict:
 
     form = define_type_of_form_fields(form)
     form_keys = set(form)
-    existing_forms = db.all()
-    for ef in existing_forms:
-        ef_keys = set(ef)
-        ef_keys.remove("name")
-        if form_keys >= ef_keys:
-            for i in ef_keys:
-                print(i, form[i], ef[i])
-                if not form[i] == ef[i]:
+    all_templates = db.all()
+    for template in all_templates:
+        temp_keys = set(template)
+        temp_keys.remove("name")
+        if form_keys >= temp_keys:
+            for k in temp_keys:
+                print(k, form[k], template[k])
+                if not form[k] == template[k]:
                     break
-            return {"name": ef["name"]}
+            return {"name": template["name"]}
     return form
