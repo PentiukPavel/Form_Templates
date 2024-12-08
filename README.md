@@ -1,4 +1,4 @@
-# FastAPI_SQLAlchemy_template
+# Forms_Templates
 ## Описание
 Web-приложение для определения заполненных форм
 
